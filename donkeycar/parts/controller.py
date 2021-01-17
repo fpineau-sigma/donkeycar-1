@@ -315,8 +315,8 @@ class PS3Joystick(Joystick):
         self.axis_names = {
             0x00 : 'left_stick_horz',
             0x01 : 'left_stick_vert',
-            0x02 : 'right_stick_horz',
-            0x03 : 'right_stick_vert',
+            0x03 : 'right_stick_horz',
+            0x04 : 'right_stick_vert',
 
             #0x02 : 'L2_pressure',
             0x05 : 'R2_pressure',
@@ -818,6 +818,7 @@ class JoystickController(object):
 
         while self.running:
             button, button_state, axis, axis_val = self.js.poll()
+            print("axis", axis)
 
             if axis is not None and axis in self.axis_trigger_map:
                 '''
